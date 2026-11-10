@@ -4,34 +4,39 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>William Tamminga Referendum</title>
-<meta name="description" content="A one-question referendum. Both available options are affirmative.">
+<meta name="description" content="Measure 1. Shall it be formally recognized that William Tamminga is awesome? Mark one box.">
 <meta property="og:title" content="William Tamminga Is Awesome">
-<meta property="og:description" content="Cast your ballot. Check Yes or Not No.">
+<meta property="og:description" content="Official ballot. Mark one box. Turnout has been total.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ffffff'/%3E%3Crect x='6' y='6' width='20' height='20' fill='none' stroke='%2315203c' stroke-width='3'/%3E%3Cpath d='M10 10 L22 22 M22 10 L10 22' stroke='%23c0273c' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  /* Single visual world: a printed paper ballot, ink on stock, one red stamp. */
+  /* One world: a municipal paper ballot. Ink, newsprint grey, one red stamp pad. */
   :root {
     color-scheme: light;
-    --paper: #eceef4;
-    --card: #ffffff;
+    --paper: #e8eaf1;
+    --card: #fffffe;
     --ink: #15203c;
     --ink-soft: #5a648a;
     --rule: #d3d8e6;
     --stamp: #c0273c;
     --display: "Archivo Black", "Arial Black", Impact, sans-serif;
     --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --mono: "Courier Prime", "Courier New", monospace;
   }
 
   * { box-sizing: border-box; }
 
   body {
     margin: 0;
-    padding: 40px 16px 56px;
+    padding: 36px 16px 60px;
     background: var(--paper);
+    background-image:
+      linear-gradient(rgba(21,32,60,.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(21,32,60,.025) 1px, transparent 1px);
+    background-size: 22px 22px;
     color: var(--ink);
     font-family: var(--body);
     font-size: 16px;
@@ -44,64 +49,75 @@
 
   .ballot {
     width: 100%;
-    max-width: 540px;
+    max-width: 560px;
     background: var(--card);
     border: 1px solid var(--rule);
-    border-radius: 2px;
-    box-shadow: 0 1px 0 var(--rule), 0 18px 40px -24px rgba(21, 32, 60, .35);
+    box-shadow: 0 1px 0 var(--rule), 0 22px 44px -26px rgba(21,32,60,.42);
     position: relative;
     overflow: hidden;
   }
 
   .perf {
-    height: 12px;
-    background: radial-gradient(circle at 6px 0, transparent 0 5px, var(--card) 5px) 0 0 / 12px 12px repeat-x;
+    height: 13px;
+    background: radial-gradient(circle at 6.5px 0, transparent 0 5.5px, var(--card) 5.5px) 0 0 / 13px 13px repeat-x;
     background-color: var(--paper);
   }
 
-  .inner { padding: 30px 28px 32px; }
+  .inner { padding: 28px 30px 30px; }
 
-  .eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin: 0 0 22px;
+  /* ---------- masthead ---------- */
+  .masthead {
     display: flex;
     justify-content: space-between;
-    gap: 12px;
+    align-items: baseline;
+    gap: 10px;
     flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
   }
+  .masthead b { color: var(--ink); font-weight: 700; }
 
   h1 {
     font-family: var(--display);
-    font-size: clamp(30px, 8.4vw, 46px);
-    line-height: 1.02;
-    letter-spacing: -.015em;
+    font-size: clamp(31px, 8.6vw, 48px);
+    line-height: 1.0;
+    letter-spacing: -.018em;
     text-wrap: balance;
-    margin: 0 0 14px;
+    margin: 0 0 16px;
   }
 
-  .question {
-    margin: 0 0 26px;
-    padding-bottom: 22px;
-    border-bottom: 2px solid var(--ink);
-    color: var(--ink-soft);
+  .measure {
+    margin: 0 0 8px;
     font-size: 15px;
+    color: var(--ink);
+  }
+  .measure b { font-weight: 700; }
+  .instruction {
+    margin: 0 0 24px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--ink);
+    font-size: 14px;
+    color: var(--ink-soft);
   }
 
-  fieldset { border: 0; margin: 0 0 26px; padding: 0; }
+  fieldset { border: 0; margin: 0 0 8px; padding: 0; }
   legend {
     padding: 0 0 12px;
-    font-size: 12px;
+    font-family: var(--mono);
+    font-size: 11.5px;
     font-weight: 700;
-    letter-spacing: .14em;
+    letter-spacing: .1em;
     text-transform: uppercase;
     color: var(--ink-soft);
   }
 
-  .choices { display: flex; flex-direction: column; gap: 10px; }
+  .choices { display: flex; flex-direction: column; gap: 9px; }
 
   .choice {
     display: flex;
@@ -109,95 +125,139 @@
     gap: 14px;
     padding: 15px 16px;
     border: 1.5px solid var(--rule);
-    border-radius: 2px;
     cursor: pointer;
     background: var(--card);
     position: relative;
-    transition: border-color .12s ease, background-color .12s ease;
+    transition: border-color .12s ease, background-color .12s ease, box-shadow .12s ease;
   }
   .choice:hover { border-color: var(--ink-soft); }
-  .choice:has(input:checked) { border-color: var(--ink); background: #f8f9fc; }
+  .choice:has(input:checked) {
+    border-color: var(--ink);
+    background: #f7f8fc;
+    box-shadow: inset 3px 0 0 var(--stamp);
+  }
   .choice:has(input:focus-visible) { outline: 3px solid var(--stamp); outline-offset: 2px; }
-
   .choice input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 
   .box {
     flex: 0 0 auto;
-    width: 26px;
-    height: 26px;
+    width: 27px; height: 27px;
     border: 2px solid var(--ink);
-    border-radius: 1px;
-    display: grid;
-    place-items: center;
+    display: grid; place-items: center;
   }
-  .box svg { width: 18px; height: 18px; opacity: 0; transform: scale(.6) rotate(-12deg); transition: opacity .12s ease, transform .14s ease; }
-  .choice input:checked ~ .box svg { opacity: 1; transform: scale(1) rotate(-6deg); }
-  .box svg path { stroke: var(--stamp); stroke-width: 2.6; stroke-linecap: round; fill: none; }
+  .box svg { width: 19px; height: 19px; opacity: 0; transform: scale(.5) rotate(-14deg); transition: opacity .1s ease, transform .16s cubic-bezier(.3,1.6,.5,1); }
+  .choice input:checked ~ .box svg { opacity: 1; transform: scale(1) rotate(-7deg); }
+  .box svg path { stroke: var(--stamp); stroke-width: 2.7; stroke-linecap: round; fill: none; }
 
   .label { font-family: var(--display); font-size: 21px; letter-spacing: -.01em; }
+  .sublabel { font-family: var(--mono); font-size: 11px; color: var(--ink-soft); margin-left: auto; text-transform: uppercase; letter-spacing: .06em; }
 
+  /* ---------- the withdrawn option ---------- */
+  .choice.gone {
+    cursor: not-allowed;
+    border-style: dashed;
+    border-color: var(--rule);
+    background: #fbfbfd;
+    transition: transform .26s cubic-bezier(.2,.9,.3,1), opacity .26s ease, border-color .12s ease;
+  }
+  .choice.gone .label { color: var(--ink-soft); text-decoration: line-through; text-decoration-thickness: 2px; }
+  .choice.gone .box { border-color: var(--rule); }
+  .choice.gone .withdrawn {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-7deg);
+    border: 2px solid var(--stamp);
+    color: var(--stamp);
+    font-family: var(--display);
+    font-size: 10px;
+    letter-spacing: .12em;
+    padding: 4px 9px;
+    opacity: .72;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .choice.gone.caught { opacity: .55; }
+
+  .dodge-note {
+    margin: 10px 0 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--stamp);
+    min-height: 1.2em;
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+  .dodge-note.show { opacity: 1; }
+
+  /* ---------- action ---------- */
   .submit {
+    margin-top: 22px;
     font-family: var(--body);
     font-size: 15px;
     font-weight: 700;
     letter-spacing: .02em;
     padding: 15px 26px;
     border: 0;
-    border-radius: 2px;
     background: var(--stamp);
     color: #fff;
     cursor: pointer;
+    transition: transform .08s ease;
   }
-  .submit:disabled { background: var(--ink-soft); opacity: .45; cursor: not-allowed; }
+  .submit:not(:disabled):active { transform: translateY(1px); }
+  .submit:disabled { background: var(--ink-soft); opacity: .4; cursor: not-allowed; }
   .submit:focus-visible, .linkish:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
 
-  .status { margin: 14px 0 0; font-size: 13.5px; color: var(--ink-soft); min-height: 1.3em; }
+  .status { margin: 12px 0 0; font-family: var(--mono); font-size: 12.5px; color: var(--ink-soft); min-height: 1.3em; }
 
-  /* ---- result ---- */
+  /* ---------- result ---------- */
   #result { display: none; }
-  #result.shown { display: block; animation: settle .22s ease-out both; }
-  @keyframes settle { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  #result.shown { display: block; }
 
+  .stamp-wrap { position: relative; margin: 2px 0 20px; }
   .verdict {
+    display: inline-block;
     font-family: var(--display);
-    font-size: clamp(34px, 9.5vw, 52px);
-    line-height: 1;
+    font-size: clamp(36px, 10vw, 56px);
+    line-height: .96;
     letter-spacing: -.02em;
     color: var(--stamp);
-    margin: 0 0 6px;
+    border: 5px solid var(--stamp);
+    padding: 8px 18px 10px;
+    transform: rotate(-4deg);
+    animation: slam .42s cubic-bezier(.2,1.5,.4,1) both;
   }
-  .verdict-sub {
-    margin: 0 0 24px;
-    font-size: 14px;
-    color: var(--ink-soft);
+  @keyframes slam {
+    0%   { opacity: 0; transform: rotate(-16deg) scale(2.6); }
+    65%  { opacity: 1; transform: rotate(-4deg) scale(.94); }
+    100% { opacity: 1; transform: rotate(-4deg) scale(1); }
   }
+
+  .verdict-sub { margin: 16px 0 24px; font-size: 15px; color: var(--ink-soft); }
+  .verdict-sub b { color: var(--ink); font-weight: 600; }
 
   .tally { width: 100%; border-collapse: collapse; margin: 0 0 20px; font-variant-numeric: tabular-nums; }
   .tally caption {
     text-align: left;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    padding-bottom: 10px;
+    font-family: var(--mono);
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-soft); padding-bottom: 10px;
   }
   .tally th, .tally td { padding: 11px 0; border-bottom: 1px solid var(--rule); text-align: left; font-weight: 500; font-size: 15px; }
-  .tally td:last-child { text-align: right; font-weight: 700; }
-  .tally tr.none th, .tally tr.none td { color: var(--ink-soft); }
+  .tally td { text-align: right; font-weight: 700; font-family: var(--mono); }
+  .bar { height: 7px; background: var(--rule); margin-top: 7px; }
+  .bar i { display: block; height: 100%; background: var(--stamp); width: 0; transition: width .7s cubic-bezier(.2,.8,.3,1); }
+  .tally tr.none th, .tally tr.none td { color: var(--ink-soft); font-weight: 500; font-size: 14px; }
   .tally tr.total th, .tally tr.total td {
-    border-bottom: 0;
-    border-top: 2px solid var(--ink);
-    font-family: var(--display);
-    font-weight: 400;
-    font-size: 16px;
-    padding-top: 13px;
+    border-bottom: 0; border-top: 2px solid var(--ink);
+    font-family: var(--display); font-weight: 400; font-size: 16px; padding-top: 13px;
   }
 
   .certify {
-    margin: 0 0 4px;
+    margin: 0;
     padding: 16px 18px;
-    background: #f8f9fc;
+    background: #f7f8fc;
     border-left: 3px solid var(--stamp);
     font-size: 14px;
     color: var(--ink-soft);
@@ -205,52 +265,45 @@
   .certify b { color: var(--ink); font-weight: 600; }
 
   .after {
-    margin: 24px 0 0;
-    padding-top: 18px;
+    margin: 22px 0 0;
+    padding-top: 16px;
     border-top: 1px solid var(--rule);
-    font-size: 13px;
+    font-family: var(--mono);
+    font-size: 12px;
     color: var(--ink-soft);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 18px;
+    display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline;
   }
   .linkish {
-    background: none;
-    border: 0;
-    padding: 0;
-    font: inherit;
-    color: var(--stamp);
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    background: none; border: 0; padding: 0;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--stamp); font-weight: 700; cursor: pointer;
+    text-decoration: underline; text-underline-offset: 3px;
   }
-  .after a { color: var(--stamp); font-weight: 600; text-underline-offset: 3px; }
 
-  .seal {
-    position: absolute;
-    right: -14px;
-    bottom: 18px;
-    transform: rotate(-11deg);
-    border: 2.5px solid var(--stamp);
-    color: var(--stamp);
-    font-family: var(--display);
-    font-size: 11px;
-    letter-spacing: .14em;
-    padding: 7px 14px;
-    opacity: .3;
-    pointer-events: none;
+  /* ---------- fine print ---------- */
+  .fineprint {
+    margin: 26px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 10.5px;
+    line-height: 1.75;
+    color: var(--ink-soft);
   }
+  .fineprint ul { margin: 0; padding: 0; list-style: none; }
+  .fineprint li::before { content: "\00a7 "; opacity: .6; }
+  .paidfor { margin-top: 10px; text-transform: uppercase; letter-spacing: .07em; }
 
   @media (prefers-reduced-motion: reduce) {
-    .box svg, .choice { transition: none; }
-    #result.shown { animation: none; }
+    .verdict { animation: none; }
+    .box svg, .choice, .choice.gone, .bar i, .submit { transition: none; }
   }
 
-  @media (max-width: 420px) {
-    .inner { padding: 24px 20px 26px; }
-    .seal { display: none; }
+  @media (max-width: 430px) {
+    .inner { padding: 22px 18px 24px; }
     .submit { width: 100%; }
+    .sublabel { display: none; }
+    .choice.gone .withdrawn { font-size: 9px; padding: 3px 6px; }
   }
 </style>
 </head>
@@ -260,66 +313,79 @@
   <div class="perf"></div>
   <div class="inner">
 
-    <p class="eyebrow">
-      <span>Official Ballot &mdash; One Question</span>
-      <span>Form WT&#8209;1</span>
-    </p>
+    <div class="masthead">
+      <span><b>Official Ballot</b> &middot; Precinct 1 of 1</span>
+      <span>No. <b id="serial">WT-00000</b></span>
+    </div>
 
-    <!-- ===== the ballot ===== -->
+    <!-- ================= ballot ================= -->
     <section id="vote-stage">
       <h1>William Tamminga Is Awesome</h1>
 
-      <p class="question">
-        Mark one box to record your position. Both available options have been
-        reviewed and approved by the Office of Obvious Conclusions.
-      </p>
+      <p class="measure"><b>Measure 1.</b> Shall it be formally recognized, in perpetuity, that William Tamminga is awesome?</p>
+      <p class="instruction">Mark one box. You may not mark more than one. You may not mark fewer than one.</p>
 
       <form id="ballot-form" novalidate>
         <fieldset>
-          <legend>Check one</legend>
+          <legend>Mark one</legend>
           <div class="choices">
+
             <label class="choice">
               <input type="radio" name="vote" value="Yes" id="vote-yes">
-              <span class="box" aria-hidden="true">
-                <svg viewBox="0 0 20 20"><path d="M3 3 L17 17 M17 3 L3 17"/></svg>
-              </span>
+              <span class="box" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M3 3 L17 17 M17 3 L3 17"/></svg></span>
               <span class="label">Yes</span>
+              <span class="sublabel">Recommended</span>
             </label>
 
             <label class="choice">
               <input type="radio" name="vote" value="Not No" id="vote-notno">
-              <span class="box" aria-hidden="true">
-                <svg viewBox="0 0 20 20"><path d="M3 3 L17 17 M17 3 L3 17"/></svg>
-              </span>
+              <span class="box" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M3 3 L17 17 M17 3 L3 17"/></svg></span>
               <span class="label">Not No</span>
+              <span class="sublabel">Also recommended</span>
             </label>
+
+            <div class="choice gone" id="no-option" aria-disabled="true">
+              <span class="box" aria-hidden="true"></span>
+              <span class="label">No</span>
+              <span class="withdrawn">Withdrawn</span>
+            </div>
+
           </div>
         </fieldset>
 
+        <p class="dodge-note" id="dodge-note" role="status"></p>
+
         <button class="submit" id="submit" type="submit" disabled>Cast my vote</button>
-        <p class="status" id="status" role="status">Check a box to enable the button.</p>
+        <p class="status" id="status">Mark a box to enable the button.</p>
       </form>
     </section>
 
-    <!-- ===== the result ===== -->
+    <!-- ================= result ================= -->
     <section id="result" aria-live="polite">
-      <p class="verdict">Approved</p>
-      <p class="verdict-sub" id="verdict-sub">Your ballot has been counted.</p>
+      <div class="stamp-wrap"><span class="verdict">Approved</span></div>
+
+      <p class="verdict-sub" id="verdict-sub">Measure 1 passes. Your ballot was recorded as <b>Yes</b>.</p>
 
       <table class="tally">
-        <caption>Certified tally</caption>
+        <caption>Certified tally &middot; 1 of 1 precincts reporting</caption>
         <tbody>
-          <tr><th scope="row">Yes</th><td id="pct-yes">62%</td></tr>
-          <tr><th scope="row">Not No</th><td id="pct-notno">38%</td></tr>
-          <tr class="none"><th scope="row">Against</th><td>option not available</td></tr>
+          <tr>
+            <th scope="row">Yes<div class="bar"><i id="bar-yes"></i></div></th>
+            <td id="pct-yes">0%</td>
+          </tr>
+          <tr>
+            <th scope="row">Not No<div class="bar"><i id="bar-notno"></i></div></th>
+            <td id="pct-notno">0%</td>
+          </tr>
+          <tr class="none"><th scope="row">No</th><td>withdrawn</td></tr>
           <tr class="total"><th scope="row">In favor</th><td>100%</td></tr>
         </tbody>
       </table>
 
       <p class="certify">
-        Turnout was <b>total</b>. The margin was <b>unanimous</b>. This outcome was
-        determined before the ballot opened and is <b>final and binding</b> in all
-        jurisdictions where William Tamminga is known.
+        Turnout was <b>total</b>. The margin was <b>unanimous</b>. The outcome was
+        determined <b>before the ballot opened</b> and is final, binding, and
+        retroactive to the date of his birth.
       </p>
 
       <p class="after">
@@ -328,7 +394,17 @@
       </p>
     </section>
 
-    <div class="seal" aria-hidden="true">Certified</div>
+    <!-- ================= fine print ================= -->
+    <div class="fineprint">
+      <ul>
+        <li>This ballot is self-certifying and requires no witness.</li>
+        <li>Tabulation by the Office of Obvious Conclusions, which has never been wrong.</li>
+        <li>Ballots cast today: <span id="ticker">1,284,006</span>. No ballot has ever been rejected.</li>
+        <li>Jurisdiction: everywhere William Tamminga is known, and four places he is not.</li>
+      </ul>
+      <p class="paidfor">Paid for by the Committee to State the Obvious.</p>
+    </div>
+
   </div>
 </main>
 
@@ -340,58 +416,106 @@
   var submit = document.getElementById("submit");
   var status = document.getElementById("status");
   var sub = document.getElementById("verdict-sub");
-  var pctYes = document.getElementById("pct-yes");
-  var pctNotNo = document.getElementById("pct-notno");
   var again = document.getElementById("again");
+  var noOpt = document.getElementById("no-option");
+  var dodgeNote = document.getElementById("dodge-note");
   var radios = form.querySelectorAll('input[name="vote"]');
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // ---- ballot serial, so every visitor gets an official-looking number ----
+  var serial = "WT-" + String(Math.floor(10000 + Math.random() * 89999));
+  document.getElementById("serial").textContent = serial;
+
+  // ---- the No option declines to be selected ----
+  var dodges = 0;
+  var notes = [
+    "That option is no longer with us.",
+    "No was withdrawn by the committee.",
+    "Still withdrawn.",
+    "It is not going to happen."
+  ];
+  function dodge() {
+    if (dodges >= 4) { return; }
+    dodgeNote.textContent = notes[Math.min(dodges, notes.length - 1)];
+    dodgeNote.classList.add("show");
+    dodges++;
+    if (dodges >= 4) {
+      noOpt.classList.add("caught");
+      noOpt.style.transform = "";
+      dodgeNote.textContent = "Fine. It is still a No from No.";
+      return;
+    }
+    if (reduce) { return; }
+    var dir = dodges % 2 === 0 ? -1 : 1;
+    noOpt.style.transform = "translateX(" + (dir * (26 + Math.random() * 20)).toFixed(0) + "px)";
+  }
+  noOpt.addEventListener("pointerenter", dodge);
+  noOpt.addEventListener("click", dodge);
+
+  // ---- enable the button once a real option is marked ----
   function chosen() {
     for (var i = 0; i < radios.length; i++) {
       if (radios[i].checked) { return radios[i].value; }
     }
     return null;
   }
-
   function refresh() {
     var pick = chosen();
     submit.disabled = !pick;
     status.textContent = pick
-      ? 'Marked "' + pick + '". Cast it when ready.'
-      : "Check a box to enable the button.";
+      ? "Marked " + pick + ". Ballot " + serial + " is ready to cast."
+      : "Mark a box to enable the button.";
   }
-
   for (var i = 0; i < radios.length; i++) {
     radios[i].addEventListener("change", refresh);
   }
 
+  // ---- cast ----
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var pick = chosen();
     if (!pick) { refresh(); return; }
 
-    // Whichever box they marked takes the larger share. Both are affirmative.
-    var lead = 55 + Math.floor(Math.random() * 12); // 55-66
-    if (pick === "Yes") {
-      pctYes.textContent = lead + "%";
-      pctNotNo.textContent = (100 - lead) + "%";
-    } else {
-      pctNotNo.textContent = lead + "%";
-      pctYes.textContent = (100 - lead) + "%";
-    }
-    sub.textContent = 'Your ballot was recorded as "' + pick + '".';
+    var lead = 55 + Math.floor(Math.random() * 12);   // whichever box you marked leads
+    var yes = (pick === "Yes") ? lead : 100 - lead;
+
+    document.getElementById("pct-yes").textContent = yes + "%";
+    document.getElementById("pct-notno").textContent = (100 - yes) + "%";
+    sub.innerHTML = "Measure 1 passes. Ballot <b>" + serial + "</b> was recorded as <b>" + pick + "</b>.";
 
     stage.style.display = "none";
     result.classList.add("shown");
+
+    // let the bars fill after paint
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        document.getElementById("bar-yes").style.width = yes + "%";
+        document.getElementById("bar-notno").style.width = (100 - yes) + "%";
+      });
+    });
+
     result.scrollIntoView({ block: "nearest" });
   });
 
   again.addEventListener("click", function () {
     result.classList.remove("shown");
     stage.style.display = "";
+    document.getElementById("bar-yes").style.width = "0";
+    document.getElementById("bar-notno").style.width = "0";
     for (var j = 0; j < radios.length; j++) { radios[j].checked = false; }
     refresh();
     stage.scrollIntoView({ block: "nearest" });
   });
+
+  // ---- turnout keeps climbing, as turnout does ----
+  var ticker = document.getElementById("ticker");
+  var count = 1284006;
+  if (!reduce) {
+    setInterval(function () {
+      count += 1 + Math.floor(Math.random() * 3);
+      ticker.textContent = count.toLocaleString("en-US");
+    }, 1800);
+  }
 
   refresh();
 })();
